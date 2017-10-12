@@ -8,7 +8,7 @@ npm install --save @neo9/cordova-honeywell-scanner
 
 ## Usage
 
-This module is instantiate the aidc manager during the init phase of the plugin
+This module instantiate the aidc manager during the init phase of the plugin
 
 ### listConnectedBarcodeDevices
 
@@ -23,7 +23,7 @@ window.cordova.plugins.honeywell.listConnectedBarcodeDevices((result) => {
 
 ### selectDevice
 
-Select a specific barcode reader device (`deviceName`: string returned by the listConnectedBarcodeDevices `id` key (optional))
+Select a specific barcode reader device (`deviceName`: string returned by the listConnectedBarcodeDevices `id` key (optional)).</br>
 If no deviceName is specified the plugin will select the device returned by the createBarcodeReader instance
 
 ```js
@@ -40,7 +40,7 @@ window.cordova.plugins.honeywell.selectDevice('dcs.scanner.imager', () => {
 
 ### claim
 
-Claim the access of the device
+Claim the access of the device</br>
 For optimization, please call this function during apps resume event
 
 ```js
@@ -49,7 +49,7 @@ window.cordova.plugins.honeywell.claim(() => console.info('claim success'), (err
 
 ### release
 
-Release the current connected device if exist.
+Release the current connected device if exist.</br>
 For optimization, please call this function during apps pause event
 
 
