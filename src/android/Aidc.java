@@ -58,9 +58,10 @@ public class Aidc extends CordovaPlugin implements BarcodeListener {
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
     // This function take the name of the device to instantiate the barcodeReader
 		if ("selectDevice".equals(action)) {
+			Log.d(TAG, "select device");
 			// We expose the current register context
 			currentCallbackContext = callbackContext;
-      String deviceName = (args.length() == 0) ? "default" : args.getString(0);
+      String deviceName = (args.length() == 0 || args.getString(0).equals("null")) ? "default" : args.getString(0);
 
       if (manager == null) {
         callbackContext.error("No manager found please");
@@ -74,7 +75,9 @@ public class Aidc extends CordovaPlugin implements BarcodeListener {
             barcodeReader.close();
         }
 
-        barcodeReader = (deviceName == "default") ? manager.createBarcodeReader(deviceName) : manager.createBarcodeReader();
+				Log.d(TAG, "selected device" + deviceName);
+
+        barcodeReader = (deviceName.equals("default")) ? manager.createBarcodeReader() : manager.createBarcodeReader(deviceName);
 
         if (barcodeReader != null) {
           // We are binding the current context for barcode events

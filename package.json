@@ -1,6 +1,6 @@
 {
   "name": "@neo9/cordova-honeywell-scanner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Honeywell TC50/D75E Barcode Scanner and external device using the com.honeywell.aidc SDK",
   "main": "index.js",
   "scripts": {
