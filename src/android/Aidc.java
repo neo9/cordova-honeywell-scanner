@@ -109,6 +109,7 @@ public class Aidc extends CordovaPlugin implements BarcodeListener {
       // We release the barcodeReader if exist
 			if (barcodeReader != null) {
 				barcodeReader.release();
+        mConnectedScanner = null;
 				callbackContext.success();
 			} else {
 				callbackContext.error("Reader not open");
