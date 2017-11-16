@@ -6,8 +6,19 @@
 
 ## Installation
 
+### With npm
 ```bash
 npm install --save @neo9/cordova-honeywell-scanner
+```
+
+### With cordova
+```bash
+cordova plugin add @neo9/cordova-honeywell-scanner
+```
+
+### With ionic
+```
+ionic cordova plugin add @neo9/cordova-honeywell-scanner
 ```
 
 ## Usage
