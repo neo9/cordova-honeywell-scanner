@@ -82,6 +82,17 @@ public class Aidc extends CordovaPlugin implements BarcodeListener {
         if (barcodeReader != null) {
           // We are binding the current context for barcode events
           barcodeReader.addBarcodeListener(Aidc.this);
+
+          try {
+            // apply settings
+            barcodeReader.setProperty(BarcodeReader.PROPERTY_EAN_8_ENABLED, true);
+            barcodeReader.setProperty(BarcodeReader.PROPERTY_EAN_8_CHECK_DIGIT_TRANSMIT_ENABLED, true);
+            barcodeReader.setProperty(BarcodeReader.PROPERTY_EAN_13_ENABLED, true);
+            barcodeReader.setProperty(BarcodeReader.PROPERTY_EAN_13_CHECK_DIGIT_TRANSMIT_ENABLED, true);
+          } catch (UnsupportedPropertyException e) {
+            callbackContext.error(e.getMessage());
+          }
+
           callbackContext.success();
         } else {
           callbackContext.error("Failed to open barcode reader with name " + deviceName);
