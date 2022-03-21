@@ -1,3 +1,5 @@
+# No longer actively maintained
+
 > Cordova plugin for honeywell barcode reader using [AidcSDK](http://download.salamandre.tm.fr/api/com/honeywell/aidc/package-summary.html)
 
 ## Supported Platforms
